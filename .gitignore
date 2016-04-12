@@ -1,0 +1,5 @@
+.idea
+/target
+/out
+README.txt
+Maven_FailSafe_Test.iml
