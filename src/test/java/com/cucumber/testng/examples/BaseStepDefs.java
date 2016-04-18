@@ -37,7 +37,7 @@ public class BaseStepDefs {
 	      	driver = new FirefoxDriver();
 	      	driver.manage().deleteAllCookies();
 	    	driver.manage().window().maximize();
-	    	driver.get("http://localhost:4002/#/app/fundCompanies/201");
+	    	driver.get("http://omdev.ca-labs.com/app/fundLinking/100");
 	    	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    	
         
