@@ -1,6 +1,24 @@
 Feature: OMTest
   This is the suite for OM Project
-
+  
+  @regression @login @positive
+  Scenario: Login with a valid user
+  When User enters a valid user name
+  And User enters a valid password 
+  Then user shall be redirected to the OM main page 
+  
+  @regression @login @negative
+  Scenario: Login with a invalid user
+  When User enters an invalid user name
+  And User enters a valid password 
+  Then error message shall be showed 
+  
+  @regression @login @negative
+  Scenario: Login with a invalid password
+  When User enters a valid user name
+  And User enters an invalid password 
+  Then error message shall ba showed 
+  
   @basictest
   Scenario: Validate the header
     When Navigate to OM site
