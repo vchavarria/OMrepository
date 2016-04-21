@@ -17,25 +17,43 @@
 ## (Comments)
 
 #Sample Feature Definition Template
+#This is a test to work with Sourcetree
+
 
 Feature: Login functionality
 
-
-
  @regression @login @positive
-  Scenario: Login with a valid user
+  Scenario: Login with a Reviewer valid user
   When User enters a valid user name
   And User enters a valid password 
   Then user shall be redirected to the OM main page 
   
   @regression @login @negative
-  Scenario: Login with a invalid user
+  Scenario: Login with a Reviewer invalid user
   When User enters an invalid user name
   And User enters a valid password 
   Then error message shall be showed 
   
   @regression @login @negative
-  Scenario: Login with a invalid password
+  Scenario: Login with a Reviewer invalid password
+  When User enters a valid user name
+  And User enters an invalid password 
+  Then error message shall be showed 
+  
+   @regression @login @positive
+  Scenario: Login with a Quality Checker valid user
+  When User enters a valid user name
+  And User enters a valid password 
+  Then user shall be redirected to the OM main page 
+  
+  @regression @login @negative
+  Scenario: Login with a Quality Checker invalid user
+  When User enters an invalid user name
+  And User enters a valid password 
+  Then error message shall be showed 
+  
+  @regression @login @negative
+  Scenario: Login with a Quality Checker invalid password
   When User enters a valid user name
   And User enters an invalid password 
   Then error message shall be showed 
