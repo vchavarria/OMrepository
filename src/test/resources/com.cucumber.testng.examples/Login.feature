@@ -24,36 +24,38 @@ Feature: Login functionality
 
  @regression @login @positive
   Scenario: Login with a Reviewer valid user
-  When User enters a valid user name
-  And User enters a valid password 
+  When User enters a Reviewer valid user name
+  And User enters a Reviewer valid password 
+  And Clicks into the alert page
   Then user shall be redirected to the OM main page 
   
   @regression @login @negative
   Scenario: Login with a Reviewer invalid user
-  When User enters an invalid user name
-  And User enters a valid password 
-  Then error message shall be showed 
+  When User enters a Reviewer invalid user name
+  And User enters a Reviewer valid password 
+  Then error message "Sign in failed!" shall be showed 
   
   @regression @login @negative
   Scenario: Login with a Reviewer invalid password
-  When User enters a valid user name
-  And User enters an invalid password 
-  Then error message shall be showed 
+  When User enters a Reviewer valid user name
+  And User enters an Reviewer invalid password 
+  Then error message "Sign in failed!" shall be showed 
   
    @regression @login @positive
   Scenario: Login with a Quality Checker valid user
-  When User enters a valid user name
-  And User enters a valid password 
+  When User enters a valid QC user name
+  And User enters a QC valid password 
+  And Clicks into the alert page
   Then user shall be redirected to the OM main page 
   
   @regression @login @negative
   Scenario: Login with a Quality Checker invalid user
-  When User enters an invalid user name
-  And User enters a valid password 
-  Then error message shall be showed 
+  When User enters a QC invalid user name
+  And User enters a QC valid password 
+  Then error message "Sign in failed!" shall be showed 
   
   @regression @login @negative
   Scenario: Login with a Quality Checker invalid password
-  When User enters a valid user name
-  And User enters an invalid password 
-  Then error message shall be showed 
+  When User enters a QC valid user name
+  And User enters a QC invalid password 
+    Then error message "Sign in failed!" shall be showed 
