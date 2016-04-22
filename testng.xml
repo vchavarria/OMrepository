@@ -7,6 +7,8 @@
      <test name="Cucumber OM Test" annotations="JDK" preserve-order="true">
         <classes>
             <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
+            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
         </classes>
+        
     </test>
 </suite>
