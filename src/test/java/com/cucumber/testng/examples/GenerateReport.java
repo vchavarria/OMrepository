@@ -36,9 +36,9 @@ public class GenerateReport {
                     buildProject, skippedFails, pendingFails, undefinedFails, missingFails, flashCharts, runWithJenkins,
                     highCharts, parallelTesting);
 
-//            ReportBuilder reportBuilder = new ReportBuilder(list, reportOutputDirectory, pluginUrlPath, buildNumber,
-//                    buildProject, skippedFails, undefinedFails, flashCharts, runWithJenkins, artifactsEnabled, artifactConfig,
-//                    highCharts);
+            //ReportBuilder reportBuilder = new ReportBuilder(list, reportOutputDirectory, pluginUrlPath, buildNumber,
+                   // buildProject, skippedFails, undefinedFails, flashCharts, runWithJenkins, artifactsEnabled, artifactConfig,
+                   //highCharts);
             reportBuilder.generateReports();
         }catch(Exception e){
             e.printStackTrace();
@@ -50,6 +50,7 @@ public class GenerateReport {
             File reportOutputDirectory = new File("target/Masterthought");
             List<String> list = new ArrayList<String>();
             list.add("target/cucumber3.json");
+            list.add("target/cucumber4.json");
             
 
             String pluginUrlPath = "";
