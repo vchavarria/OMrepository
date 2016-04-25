@@ -1,18 +1,27 @@
-Feature: OMTest
-  This is the suite for OM Project
+Feature: OM Testing suite for validation 
+  Suite to test basic functionalities of OM Site
+  
+Background: Valid Reviewer Login 
+  
+  When User enters a Reviewer valid user name
+  And User enters a Reviewer valid password 
+  And Clicks into the alert page
+  Then user shall be redirected to the OM main page  
   
   @basictest
   Scenario: Validate the header
-    When Navigate to OM site
+  	When Navigate to OM site
     Then Header shall be "OPERATING METRICS"
 
   @basictest
   Scenario: Reviewing the table headers
+
     When Navigate to OM site
     Then I should be see the table header "Qualitative Company Details"
 
   @basictest
   Scenario: Updating Notes field
+
     When Navigate to OM site
     And user double clicks in Company notes
     Then User is able to enter "Company note here for 401 test"
