@@ -47,6 +47,8 @@ private StringBuffer verificationErrors = new StringBuffer();
 	@And("^Clicks into the alert page$")
 	public void clicks_into_the_alert_page() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
+		//Utility.isAlertPresent();
+		//Utility.closeAlertAndGetItsText();		
 		Alert alert = driver.switchTo().alert();
 	    alert.accept();
 	    //throw new PendingException();

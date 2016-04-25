@@ -3,6 +3,8 @@ package com.cucumber.testng.examples;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -46,7 +48,12 @@ public class BaseStepDefs {
       
     @After
     public void after(Scenario scenario) {
-        System.out.println("This is after Scenario: " + scenario.getName().toString());
+        //System.out.println("This is after Scenario: " + scenario.getName().toString());
+          //   if (scenario.isFailed()) {
+              // Take a screenshot...
+            //  final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+              //scenario.embed(screenshot, "image/png"); // ... and embed it in the report.
+            //}
               driver.quit();
     }
    
