@@ -48,9 +48,11 @@ private StringBuffer verificationErrors = new StringBuffer();
 	public void clicks_into_the_alert_page() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		//Utility.isAlertPresent();
-		//Utility.closeAlertAndGetItsText();		
-		Alert alert = driver.switchTo().alert();
-	    alert.accept();
+		//Utility.closeAlertAndGetItsText();
+		Utility.isAlertPresent(driver);
+		Utility.handleAlert(driver);
+		//Alert alert = driver.switchTo().alert();
+	    //alert.accept();
 	    //throw new PendingException();
 	}
 	@Then("^user shall be redirected to the OM main page$")
@@ -65,13 +67,7 @@ private StringBuffer verificationErrors = new StringBuffer();
 	    // Write code here that turns the phrase above into concrete actions
 		//assertEquals(signerr, driver.findElement(By.id("signin-feedback")).getText());
 		assertEquals(driver.findElement(By.id("signin-feedback")).getText(), signerr);
-		//assertTrue(Utility.isElementPresent(By.cssSelector("#signin-feedback > p")));
-	    //try {
-	    // assertTrue(Utility.isElementPresent(By.cssSelector("h1")));
-	   //} catch (Error e) {
-	    //  verificationErrors.append(e.toString());
-	   //}
-	  // System.out.println(signerr);
+		System.out.println("Login failed message " + signerr);
 	   // throw new PendingException();
 	}
 	

@@ -20,36 +20,21 @@ public static WebDriver driver;
 	    	driver = BaseStepDefs.driver;
 	    	
 	    }
-	public static boolean isElementPresent(By by) {
-	    try {
-	      driver.findElement(by);
-	      return true;
-	    } catch (NoSuchElementException e) {
-	      return false;
-	    }
-	  }
-	
-	public static boolean isAlertPresent() {
-	    try {
-	      driver.switchTo().alert();
-	      return true;
-	    } catch (NoAlertPresentException e) {
-	      return false;
-	    }
-	  }
+		  
+	public static void handleAlert(WebDriver ldriver){
+		if(isAlertPresent(ldriver)){
+			Alert alert = ldriver.switchTo().alert();
+			System.out.println(alert.getText());
+			alert.accept();
+		}
+	}
 
-	  public static String closeAlertAndGetItsText() {
-	    try {
-	      Alert alert = driver.switchTo().alert();
-	      String alertText = alert.getText();
-	      if (acceptNextAlert) {
-	        alert.accept();
-	      } else {
-	        alert.dismiss();
-	      }
-	      return alertText;
-	    } finally {
-	      acceptNextAlert = true;
-	    }
-	  }
+	public static boolean isAlertPresent(WebDriver ldriver){
+		try{
+			ldriver.switchTo().alert();
+			return true;
+		}catch(NoAlertPresentException ex){
+			return false;
+		}
+	}
 }
