@@ -1,4 +1,4 @@
-package com.cucumber.testng.examples;
+package Test_Steps;
 
 import cucumber.api.DataTable;
 import cucumber.api.Format;
@@ -24,6 +24,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
+import com.cucumber.testng.examples.BaseStepDefs;
 
 import static org.testng.AssertJUnit.assertEquals;
 
