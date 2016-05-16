@@ -1,4 +1,4 @@
-#Author: girija.panda@nokia.com
+#Author: Victor Chavarria
 #Keywords Summary :
 #Feature: List of scenarios.
 #Scenario: Business rule through list of steps with arguments.
@@ -11,33 +11,28 @@
 #Background: List of steps run before each of the scenarios
 #""" (Doc Strings)
 #| (Data Tables)
-#@ (Tags/Labels):To group Scenarios 
+#@ (Tags/Labels):To group Scenarios
 #<> (placeholder)
 #""
 ## (Comments)
-
 #Sample Feature Definition Template
+Feature: OM Reviewer queue validation
+  This suite is to validate the Reviewer queue screen
 
-Feature: Check the 
-	I want to use this template for my feature file
+  Background: Valid Reviewer Login
+    When User enters a Reviewer valid user name
+    And User enters a Reviewer valid password
+    And Clicks into the alert page
+    Then user shall be redirected to the OM main page
 
-@wip
-Scenario: Title of your scenario
-Given I want to write a step with precondition
-	And some other precondition
-When I complete action
-	And some other action
-	And yet another action
-Then I validate the outcomes
-	And check more outcomes
+  @regression @positive @reviewerqueue
+  Scenario Outline: Validate the Review in Progress Filter
+    Given User is on the Reviewer queue
+    When User selects Filter by <Filter>
+    And User selects the status <Status>
+    Then Only the firms in <Status> are showed
 
-@wip
-Scenario Outline: Title of your scenario outline
-Given I want to write a step with <name>
-When I check for the <value> in step
-Then I verify the <status> in step
-
-Examples:
-    | name  |value | status |
-    | name1 |  5   | success|
-    | name2 |  7   | Fail   |
+    Examples: 
+      | Filter | Status             |
+      | Status | REVIEW IN PROGRESS |
+      | Status | READY TO REVIEW    |
