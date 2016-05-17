@@ -22,6 +22,7 @@ Feature: OM Reviewer queue validation
   Background: Valid Reviewer Login
     When User enters a Reviewer valid user name
     And User enters a Reviewer valid password
+    And User clicks in the Login button 
     And Clicks into the alert page
     Then user shall be redirected to the OM main page
 
