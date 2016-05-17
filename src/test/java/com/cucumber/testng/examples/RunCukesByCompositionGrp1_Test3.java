@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
  * An example of using TestNG when the test class does not inherit from
  * AbstractTestNGCucumberTests.
  */
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/OMmain.feature", tags = "@basictest", format = { "pretty",
+@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/OMmain.feature", tags = "@regression, @positive, @reviewerqueue", format = { "pretty",
         "html:target/site/cucumber-pretty1",
         "json:target/cucumber3.json" })
 public class RunCukesByCompositionGrp1_Test3 extends BaseTestCase {
