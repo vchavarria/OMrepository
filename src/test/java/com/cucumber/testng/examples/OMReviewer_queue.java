@@ -36,7 +36,7 @@ public void User_is_on_the_Reviewer_queue () throws Throwable {
 public void user_selects_Filter_by (String FltStatus) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
-	//Reviewer_Queue_pageobj.ddwn_Filter1(driver).click();
+	Reviewer_Queue_pageobj.ddwn_Filter1(driver).click();
 	//Select oSelect = 
 	new Select(Reviewer_Queue_pageobj.ddwn_Filter1(driver)).selectByVisibleText(FltStatus);
 	//oSelect.selectByVisibleText("Status");
@@ -46,7 +46,7 @@ public void user_selects_Filter_by (String FltStatus) throws Throwable {
 public void user_selects_the_status(String FndStatus) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
-	//Reviewer_Queue_pageobj.ddwn_Filter2(driver).click();
+	Reviewer_Queue_pageobj.ddwn_Filter2(driver).click();
 	new Select(Reviewer_Queue_pageobj.ddwn_Filter1(driver)).selectByVisibleText(FndStatus);;
 	//oSelect.selectByVisibleText("Status");
 }
