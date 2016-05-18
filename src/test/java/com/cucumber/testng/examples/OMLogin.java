@@ -1,13 +1,10 @@
-package Test_Steps;
+package com.cucumber.testng.examples;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-
-import com.cucumber.testng.examples.BaseStepDefs;
-import com.cucumber.testng.examples.Login_Page_pageobj;
 
 import Utilities.Utility;
 import static org.testng.Assert.*;

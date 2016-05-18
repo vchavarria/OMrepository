@@ -32,7 +32,8 @@ public class BaseStepDefs {
          * shared state between tests
          */
   // }
-        public void openBrowser() throws MalformedURLException {
+        public void openBrowser(Scenario scenario) throws MalformedURLException {
+    	 System.out.println("This is before Scenario: " + scenario.getName().toString());
 		 System.out.println("Called openBrowser");
 		 //System.setProperty("webdriver.chrome.driver", "C://Users/vchavarria/Downloads/Maven-Failsafe-Plugin-Example-master/resources/com/drivers/chromedriver.exe");
 		 //driver = new ChromeDriver();

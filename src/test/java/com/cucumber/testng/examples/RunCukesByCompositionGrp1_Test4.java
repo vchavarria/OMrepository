@@ -16,9 +16,17 @@ import org.testng.annotations.Test;
  * An example of using TestNG when the test class does not inherit from
  * AbstractTestNGCucumberTests.
  */
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/Login.feature", tags = "@regression, @negative, @positive, @login", format = { "pretty",
+
+
+@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/Login.feature", tags = "@regression @login @negative, @positive", format = { "pretty",
         "html:target/site/cucumber-pretty1",
         "json:target/cucumber4.json" })
+
+//dryRun: ** **if dryRun option is set to true then cucumber only checks if all the steps have their corresponding step definitions defined or not. The code mentioned in the Step definitions is not executed. This is used just to validate if we have defined a step definition for each step or not.
+//Strict: ** **if strict option is set to false then at execution time if cucumber encounters any undefined/pending steps then cucumber does not fail the execution and undefined steps are skipped and BUILD is SUCCESSFUL. 
+//Monochrome: if monochrome option is set to False, then the console output is not as readable as it should be. may be the output images will make this more clear.
+//Features: * features option is to specify the path to feature files. when cucumber starts execution, Cucumber looks for .feature files at the path/folder mentioned in features option. Whichever files are with .feature extension ( if there are no compilation errors) at the path/folder mentioned in features, are executed. 
+
 public class RunCukesByCompositionGrp1_Test4 extends BaseTestCase {
     @BeforeSuite
     

@@ -1,12 +1,11 @@
-package Test_Steps;
+package com.cucumber.testng.examples;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.cucumber.testng.examples.BaseStepDefs;
-import com.cucumber.testng.examples.Reviewer_Queue_pageobj;
+import com.cucumber.testng.examples.*;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
