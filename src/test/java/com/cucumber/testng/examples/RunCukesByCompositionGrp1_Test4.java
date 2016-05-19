@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
  */
 
 
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/Login.feature", tags = "@regression @login @negative, @positive", format = { "pretty",
+@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/Login.feature", tags = "@positive", format = { "pretty",
         "html:target/site/cucumber-pretty1",
         "json:target/cucumber4.json" })
 

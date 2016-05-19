@@ -16,12 +16,12 @@ public class Reviewer_Queue_pageobj {
 		}
 		
 		public static WebElement ddwn_Filter1(WebDriver driver){
-			element = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[3]/div[1]/div/div[1]/select"));
+			element = driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select"));
 			return element;
 		}
 
 		public static WebElement ddwn_Filter2(WebDriver driver){
-			element = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[3]/div[1]/div/div[3]/select"));
+			element = driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select"));
 			return element;
 		}
 		public static WebElement lbl_Fund1(WebDriver driver){
