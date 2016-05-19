@@ -27,13 +27,23 @@ Feature: OM Reviewer queue validation
     Then user shall be redirected to the OM main page
 
   @regression @positive @reviewerqueue
-  Scenario Outline: Validate the Review in Progress Filter
+  Scenario: Validate the Review in Progress Filter
     Given User is on the Reviewer queue
-    When User selects Filter by <Filter>
-    And User selects the status <Status>
-    Then Only the firms in <Status> are showed
+    When User selects Filter by Status
+    And User selects the status REVIEW IN PROGRESS
+    Then Only the firms in REVIEW IN PROGRESS are showed
+    And check the fields displayed within a firm
+    
+    @regression @positive @reviewerqueue
+  Scenario: Validate the Ready to REview Filter
+    Given User is on the Reviewer queue
+    When User selects Filter by Status
+    And User selects the status READY TO REVIEW
+    Then Only the firms in READY TO REVIEW are showed
+    And check the fields displayed within a firm
+    
 
-    Examples: 
-      | Filter | Status             |
-      | Status | REVIEW IN PROGRESS |
-      | Status | READY TO REVIEW    |
+    ##Examples: 
+      ##| Filter | Status             |
+      ##| Status | REVIEW IN PROGRESS |
+      ##| Status | READY TO REVIEW    |
