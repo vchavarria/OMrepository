@@ -14,6 +14,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -27,10 +28,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.cucumber.testng.pageobjects.Reviewerqueue_PO;
+
 /**
  * Created by amit.rawat on 21/12/15.
  */
 public class BaseTestCase {
+	//static WebDriver driver;
 	
 ////	private static final Properties frameworkProperty = PropertyManager
 ////			.loadFrameworkPropertyFile("framework.properties");
@@ -137,5 +141,6 @@ public class BaseTestCase {
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("This is beforeMethod of Base Test Case");
+       
     }
 }

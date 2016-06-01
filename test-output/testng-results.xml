@@ -1,55 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Custom suite" duration-ms="142475" started-at="2016-05-18T15:36:05Z" finished-at="2016-05-18T15:38:27Z">
+  <suite name="Default suite" duration-ms="33639" started-at="2016-06-01T21:24:55Z" finished-at="2016-06-01T21:25:28Z">
     <groups>
       <group name="examples-testng">
-        <method signature="RunCukesByCompositionGrp1_Test3.runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="runCukes" class="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
-        <method signature="RunCukesByCompositionGrp1_Test4.runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4@5025a98f]" name="runCukes" class="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
+        <method signature="RunCukesByCompositionGrp1_Test3.runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="runCukes" class="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
       </group> <!-- examples-testng -->
     </groups>
-    <test name="Cucumber OM Test" duration-ms="142475" started-at="2016-05-18T15:36:05Z" finished-at="2016-05-18T15:38:27Z">
+    <test name="Default test" duration-ms="33639" started-at="2016-06-01T21:24:55Z" finished-at="2016-06-01T21:25:28Z">
       <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="beforeSuite" is-config="true" duration-ms="12" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="beforeSuite" is-config="true" duration-ms="10" started-at="2016-06-01T15:24:55Z" finished-at="2016-06-01T15:24:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4@5025a98f]" name="beforeSuite" is-config="true" duration-ms="0" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="beforeClass" is-config="true" duration-ms="3" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="beforeClass" is-config="true" duration-ms="0" started-at="2016-06-01T15:24:55Z" finished-at="2016-06-01T15:24:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="runCukes" duration-ms="457" started-at="2016-05-18T09:36:05Z" description="Example of using TestNGCucumberRunner to invoke Cucumber" finished-at="2016-05-18T09:36:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runCukes -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="beforeMethod" is-config="true" duration-ms="2" started-at="2016-06-01T15:24:55Z" finished-at="2016-06-01T15:24:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@2d928643]" name="afterSuite" is-config="true" duration-ms="0" started-at="2016-05-18T09:38:27Z" finished-at="2016-05-18T09:38:27Z">
+        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="runCukes" duration-ms="33625" started-at="2016-06-01T15:24:55Z" description="Example of using TestNGCucumberRunner to invoke Cucumber" finished-at="2016-06-01T15:25:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runCukes -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3@4b952a2d]" name="afterSuite" is-config="true" duration-ms="0" started-at="2016-06-01T15:25:28Z" finished-at="2016-06-01T15:25:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3 -->
-      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4@5025a98f]" name="beforeClass" is-config="true" duration-ms="0" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="runCukes()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4@5025a98f]" name="runCukes" duration-ms="141995" started-at="2016-05-18T09:36:05Z" description="Example of using TestNGCucumberRunner to invoke Cucumber" finished-at="2016-05-18T09:38:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runCukes -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4@5025a98f]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2016-05-18T09:36:05Z" finished-at="2016-05-18T09:36:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4 -->
-    </test> <!-- Cucumber OM Test -->
-  </suite> <!-- Custom suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
