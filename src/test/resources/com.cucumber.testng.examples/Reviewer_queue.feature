@@ -31,10 +31,13 @@ Feature: OM Reviewer queue validation
     Given User is on the queue <queue>
     When User selects Filter by <Filter>
     And User selects the status <Status>
-    Then Only the firms showed with <Status> 
+    Then Only the firms showed with <Status>
     And check the fields displayed within a firm
 
     Examples: 
       | Filter | Status             | queue  |
       | Status | REVIEW IN PROGRESS | REVIEW |
       | Status | READY TO REVIEW    | REVIEW |
+      | Status | All                | REVIEW |
+      | Type   | All                | REVIEW |
+      | Type   | PE                 | REVIEW |

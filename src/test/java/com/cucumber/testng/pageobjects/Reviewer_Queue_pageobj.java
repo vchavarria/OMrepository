@@ -13,12 +13,13 @@ public class Reviewer_Queue_pageobj {
 		}
 		
 		public static WebElement ddwn_Filter1(WebDriver driver){
-			element = driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select"));
+			element = driver.findElement(By.cssSelector("select.ng-pristine.ng-untouched.ng-valid.ng-not-empty"));
+			//element = driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select"));
 			return element;
 		}
 
 		public static WebElement ddwn_Filter2(WebDriver driver){
-			element = driver.findElement(By.cssSelector("h3[ng-bind]")("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select"));
+			element = driver.findElement(By.cssSelector("select[ng-options='item as item for item in vm.filterOptions']]"));
 			return element;
 		}
 		public static WebElement lbl_Fund1(WebDriver driver){

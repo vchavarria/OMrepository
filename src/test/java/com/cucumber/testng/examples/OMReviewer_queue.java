@@ -74,22 +74,16 @@ public void only_the_firms (String arg4) throws Throwable {
 	// Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 	//div[@id='app']/div/div/main/div/section/div/div/div/div[6]
-	int rowcount=driver.findElements(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div")).size();
+	int rowcount=driver.findElements(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div")).size();
+	Select se = new Select(Reviewerqueue_PO.ddwn_Filter1);
+	WebElement strCurrentValue = se.getFirstSelectedOption();
 	if (rowcount > 0) 
 	{
-	System.out.println("Total firms in "+ arg4 + " "+(rowcount-4));
+	System.out.println("Total firms Filtered by "+strCurrentValue+" "+ arg4 + " "+(rowcount-4));
 	}
-	//div[@id='app']/div/div/main/div/section/div/div/div/div[5]
-	
-//	for (int x=5;x<rowcount+1;x++){
-//		String s = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText();	 
-//	if(driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText().matches(arg4))
-//	{
-//	System.out.println(arg4 +" firm found");
-//	}
 	else
 	{
-	System.out.println("Not firms in "+ arg4);
+	System.out.println("Not firms Filtered by "+strCurrentValue+" "+ arg4);
 	}
 	
 //	try {
@@ -101,7 +95,29 @@ public void only_the_firms (String arg4) throws Throwable {
 }
 @Then("^check the fields displayed within a firm$")
 public void check_the_fields_displayed_within_a_firm() throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
+	int rowcount=driver.findElements(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div")).size();
+	if (rowcount > 0) 
+		for (int x=5;x<rowcount+1;x++){
+		String Compname = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[1]/h3")).getText();	
+		String NumFunds = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[2]/div/p")).getText();
+		String FundTyp = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[3]/div/p")).getText();
+		String SubmDt = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[4]/div/p")).getText();
+		String Status = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText();
+		System.out.println("Company "+Compname+" has "+NumFunds+" and "+FundTyp+" and "+SubmDt+" Status "+Status);
+		}
+	else
+		{
+		System.out.println("Verification Failed - No Fields found");
+		}
+
+		//if(driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText().matches(arg4))
+		//{
+	//System.out.println(arg4 +" firm found");
+	//}
+	//System.out.println("Total firms in "+ arg4 + " "+(rowcount-4));
+	//}
+	
+	// Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 }
 

@@ -12,9 +12,11 @@ public class Reviewerqueue_PO {
 		
 	@FindBy(how = How.CSS, using = "li.selected")	
 	public static WebElement tab_Review;	
-	@FindBy(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select") 	
+	@FindBy(how = How.CSS, using = "[ng-change='vm.filterChange(vm.filter)']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select")
 	public static WebElement ddwn_Filter1;
-	@FindBy(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select") 	
+	@FindBy(how = How.CSS, using = "[ng-change='vm.filterFunds(vm.filterOption)']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
 	public static WebElement ddwn_Filter2;
 
 	public Reviewerqueue_PO(WebDriver driver){ 
