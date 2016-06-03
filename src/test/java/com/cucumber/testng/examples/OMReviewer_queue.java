@@ -1,6 +1,7 @@
 package com.cucumber.testng.examples;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.TimerTask;
 
 import org.openqa.selenium.By;
@@ -20,22 +21,24 @@ import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
 public class OMReviewer_queue {
+	
 	public WebDriver driver;
 	private StringBuffer verificationErrors = new StringBuffer();
-	
+	String Filter;
 	
 public OMReviewer_queue()
 {
 	driver = BaseStepDefs.driver;
 	
 }
+
 @Given("^User is on the queue ([^\"]*)$")
-public void User_is_on_the_queue (String arg1) throws Throwable {
+public void User_is_on_the_queue (String Queue) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 	
 	 //now perform the action on this element
-	Assert.assertEquals((Reviewerqueue_PO.tab_Review.getText()), arg1);
+	Assert.assertEquals((Reviewerqueue_PO.tab_Review.getText()), Queue);
 		String CurrURL = driver.getCurrentUrl();
 		Assert.assertEquals("http://omdev.ca-labs.com/app/queue/reviewer", CurrURL);
 		System.out.println("Current Queue "+CurrURL);
@@ -48,50 +51,47 @@ public void User_is_on_the_queue (String arg1) throws Throwable {
 
 
 @Then("^User selects Filter by ([^\"]*)$")
-public void user_selects_Filter_by (String arg2) throws Throwable {
+public void user_selects_Filter_by (String Filter1) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 	//Reviewer_Queue_pageobj.ddwn_Filter1(driver).click();
 	//Select oSelect = 
-	new Select(Reviewerqueue_PO.ddwn_Filter1).selectByVisibleText(arg2);
+	Filter = Filter1;
+	new Select(Reviewerqueue_PO.ddwn_Filter1).selectByVisibleText(Filter1);
 	//new Select(driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select"))).selectByVisibleText("Status");
 	//oSelect.selectByVisibleText("Status");
 }
 
 @And("^User selects the status ([^\"]*)$")
-public void user_selects_the_status(String arg3) throws Throwable {
+public void user_selects_the_status(String Filter2) throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 	//Reviewer_Queue_pageobj.ddwn_Filter2(driver).click();
-	new Select (Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText(arg3);
+	new Select (Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText(Filter2);
 	//new Select(driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select"))).selectByVisibleText("REVIEW IN PROGRESS");
 	//oSelect.selectByVisibleText("Status");
 }
 
 @Then("^Only the firms showed with ([^\"]*)$")
-public void only_the_firms (String arg4) throws Throwable {
+public void only_the_firms (String Stat) throws Throwable {
     
 	// Write code here that turns the phrase above into concrete actions
     //throw new PendingException();
 	//div[@id='app']/div/div/main/div/section/div/div/div/div[6]
+	
 	int rowcount=driver.findElements(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div")).size();
-	Select se = new Select(Reviewerqueue_PO.ddwn_Filter1);
-	WebElement strCurrentValue = se.getFirstSelectedOption();
+//	Select se = new Select(Reviewerqueue_PO.ddwn_Filter1);
+//	WebElement strCurrentValue = se.getFirstSelectedOption();
+	
 	if (rowcount > 0) 
 	{
-	System.out.println("Total firms Filtered by "+strCurrentValue+" "+ arg4 + " "+(rowcount-4));
+	System.out.println("Total firms Filtered by "+Filter+" "+ Stat + " "+(rowcount-4));
 	}
 	else
 	{
-	System.out.println("Not firms Filtered by "+strCurrentValue+" "+ arg4);
+	System.out.println("Not firms Filtered by "+Filter+" "+ Stat);
 	}
 	
-//	try {
-//		Assert.assertTrue(driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div")).getText().matches("READY TO REVIEW"));
-//		} catch (Error e) {
-//		verificationErrors.append(e.toString());
-//		}
-	//Assert.assertEquals((Reviewer_Queue_pageobj.lbl_FundStatus(driver)).getText(), "REVIEW IN PROGRESS");
 }
 @Then("^check the fields displayed within a firm$")
 public void check_the_fields_displayed_within_a_firm() throws Throwable {
@@ -109,52 +109,59 @@ public void check_the_fields_displayed_within_a_firm() throws Throwable {
 		{
 		System.out.println("Verification Failed - No Fields found");
 		}
+}
 
-		//if(driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText().matches(arg4))
-		//{
-	//System.out.println(arg4 +" firm found");
-	//}
-	//System.out.println("Total firms in "+ arg4 + " "+(rowcount-4));
-	//}
-	
-	// Write code here that turns the phrase above into concrete actions
+
+@When("^User selects Sort by ([^\"]*)$")
+public void user_selects_Sort_by_Number_of_Funds(String Sort) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	new Select(Reviewerqueue_PO.ddwn_Sort).selectByVisibleText(Sort);
+    //throw new PendingException();
+}
+@When("^User selects the criteria ([^\"]*)$")
+public void user_selects_the_criteria_Ascending(String Criteria) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	if (Criteria.equals("Ascending")){
+		Reviewerqueue_PO.chk_Ascending.click();
+	}
+		else if (Criteria.equals("A-Z")){
+			Reviewerqueue_PO.chk_AZ.click();
+		}
+		else if (Criteria.equals("Descending")){
+			Reviewerqueue_PO.chk_Descending.click();
+		}
+		else if (Criteria.equals("Z-A")){
+			Reviewerqueue_PO.chk_ZA.click();
+		}
+	}
+
+@Then("^check the fields Sorted within a firm$")
+public void check_the_fields_Sorted_within_a_firm() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+	 WebElement table = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[5]"));
+
+	    List rows = table.findElements(By.tagName("tr"));
+	    int row_count = rows.size();
+	    System.out.println("Total rows is " + row_count);
+	    Iterator I1 = rows.iterator();
+
+	    while(I1.hasNext()){
+	      WebElement data = (WebElement) I1.next();
+
+	      List columns= data.findElements(By.tagName("td"));
+	      Iterator I2=columns.iterator();
+	      while(I2.hasNext()){
+	        WebElement text=(WebElement) I2.next();
+	        String columndata=text.getText();
+	        System.out.print(" ");
+	        System.out.print(columndata);
+	        System.out.print(" ");
+	      }
+	      System.out.println("");
+	    }
+	  }
+    
     //throw new PendingException();
 }
 
-//@When("^User selects the status READY TO REVIEW$")
-//public void user_selects_the_status_READY_TO_REVIEW() throws Throwable {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new PendingException();
-//	//new Select (Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText("READY TO REVIEW");
-//	new Select (Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText("READY TO REVIEW");
-//	
-//	//new Select(driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select"))).selectByVisibleText("READY TO REVIEW");
-//}
-//
-//@Then("^Only the firms in READY TO REVIEW are showed$")
-//public void only_the_firms_in_READY_TO_REVIEW_are_showed() throws Throwable {
-//    // Write code here that turns the phrase above into concrete actions
-//    //throw new PendingException();
-//	int rowcount=driver.findElements(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div")).size();
-//	System.out.println("Total firms in READY TO REVIEW "+(rowcount-4));
-//	//div[@id='app']/div/div/main/div/section/div/div/div/div[5]
-//	for (int x=5;x<rowcount+1;x++){
-//	String s = driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText();	 
-//	if(driver.findElement(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div["+x+"]/div[1]/div[2]/p")).getText().matches("READY TO REVIEW"))
-//	{
-//	System.out.println("READY TO REVIEW firm found");
-//	}
-//	else
-//	{
-//	System.out.println("READY TO REVIEW IN PROGRESS");
-//	}
-//	}
-////	Assert.assertEquals((Reviewer_Queue_pageobj.lbl_FundStatus(driver)).getText(), "READY TO REVIEW");
-////	Assert.assertEquals("READY TO REVIEW", driver.findElement(By.cssSelector("p.pull-right.ng-binding")).getText());
-////    Assert.assertEquals("Number of Funds: 12", driver.findElement(By.cssSelector("div.col-xs-12 > p")).getText());
-////    Assert.assertEquals("PE", driver.findElement(By.cssSelector("div.col-xs-8 > p > span.ng-binding")).getText());
-////    Assert.assertEquals("Submitted Date: 05/03/2016", driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[5]/div[4]/div/p")).getText());
-//}
 
-
-}

@@ -18,6 +18,21 @@ public class Reviewerqueue_PO {
 	@FindBy(how = How.CSS, using = "[ng-change='vm.filterFunds(vm.filterOption)']")
 	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
 	public static WebElement ddwn_Filter2;
+	@FindBy(how = How.CSS, using = "[ng-model='vm.sortField']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
+	public static WebElement ddwn_Sort;
+	@FindBy(how = How.CSS, using = "[type='checkbox'][ng-model='vm.sortOption.a']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
+	public static WebElement chk_Ascending;
+	@FindBy(how = How.CSS, using = "[type='checkbox'][ng-model='vm.sortOption.z']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
+	public static WebElement chk_Descending;
+	@FindBy(how = How.CSS, using = "[type='checkbox'][ng-model='vm.sortOption.a']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
+	public static WebElement chk_AZ;
+	@FindBy(how = How.CSS, using = "[type='checkbox'][ng-model='vm.sortOption.z']")
+	//(how = How.XPATH, using = "//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div[3]/select")
+	public static WebElement chk_ZA;
 
 	public Reviewerqueue_PO(WebDriver driver){ 
 		 
