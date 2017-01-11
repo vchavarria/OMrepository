@@ -27,38 +27,38 @@ Scenario: Login with a Reviewer valid user
 	And Clicks into the alert page 
 	Then user shall be redirected to the OM main page 
 	
-@regression @login @negative 
-Scenario: Login with a Reviewer invalid user 
-	When User enters a Reviewer invalid user name 
-	And User enters a Reviewer valid password 
-	And User clicks in the Login button 
-	Then error message "Sign in failed!" shall be showed 
+##@regression @login @negative 
+##Scenario: Login with a Reviewer invalid user 
+##	When User enters a Reviewer invalid user name 
+##	And User enters a Reviewer valid password 
+##	And User clicks in the Login button 
+##	Then error message "Sign in failed!" shall be showed 
 	
-@regression @login @negative 
-Scenario: Login with a Reviewer invalid password 
-	When User enters a Reviewer valid user name 
-	And User enters an Reviewer invalid password 
-	And User clicks in the Login button 
-	Then error message "Sign in failed!" shall be showed 
+##@regression @login @negative 
+##Scenario: Login with a Reviewer invalid password 
+##	When User enters a Reviewer valid user name 
+##	And User enters an Reviewer invalid password 
+##	And User clicks in the Login button 
+##	Then error message "Sign in failed!" shall be showed 
 	
-@regression @login @positive 
-Scenario: Login with a Quality Checker valid user 
-	When User enters a valid QC user name 
-	And User enters a QC valid password 
-	And User clicks in the Login button 
-	And Clicks into the alert page 
-	Then user shall be redirected to the OM main page 
+##@regression @login @positive 
+##Scenario: Login with a Quality Checker valid user 
+##	When User enters a valid QC user name 
+##	And User enters a QC valid password 
+##	And User clicks in the Login button 
+##	And Clicks into the alert page 
+##	Then user shall be redirected to the OM main page 
 	
-@regression @login @negative 
-Scenario: Login with a Quality Checker invalid user 
-	When User enters a QC invalid user name 
-	And User enters a QC valid password 
-	And User clicks in the Login button 
-	Then error message "Sign in failed!" shall be showed 
+##@regression @login @negative 
+##Scenario: Login with a Quality Checker invalid user 
+##	When User enters a QC invalid user name 
+##	And User enters a QC valid password 
+##	And User clicks in the Login button 
+	##Then error message "Sign in failed!" shall be showed 
 	
-@regression @login @negative 
-Scenario: Login with a Quality Checker invalid password 
-	When User enters a QC valid user name 
-	And User enters a QC invalid password 
-	And User clicks in the Login button 
-	Then error message "Sign in failed!" shall be showed 
+##@regression @login @negative 
+##Scenario: Login with a Quality Checker invalid password 
+##	When User enters a QC valid user name 
+##	And User enters a QC invalid password 
+##	And User clicks in the Login button 
+##	Then error message "Sign in failed!" shall be showed 

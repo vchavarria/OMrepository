@@ -16,7 +16,7 @@
           <test name="Cucumber OM Test chrome" annotations="JDK" preserve-order="true">
       <!-- <parameter name="browser" value="firefox"/> -->
         <classes>
-            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
+            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
            <!--  <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/> -->
             <class name="com.cucumber.testng.examples.BaseStepDefs"/>
         </classes>

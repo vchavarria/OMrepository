@@ -1,10 +1,7 @@
 package com.cucumber.testng.examples;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.cucumber.testng.pageobjects.Reviewerqueue_PO;
@@ -15,7 +12,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
-public class OMReviewer_queue {
+public class OMValidate_queues {
 
 	public WebDriver driver;
 	private StringBuffer verificationErrors = new StringBuffer();
@@ -23,7 +20,7 @@ public class OMReviewer_queue {
 	String SlctCriteria;
 	String SrtOption;
 
-	public OMReviewer_queue() {
+	public OMValidate_queues() {
 		driver = BaseStepDefs.driver;
 
 	}
@@ -35,6 +32,8 @@ public class OMReviewer_queue {
 		// now perform the action on this element
 		boolean Revpresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Review);
 		boolean Excpresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Exception);
+		boolean Quapresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Quality);
+		Thread.sleep(2000);
 		if (Queue.equals("REVIEW") && Revpresent == true) {
 
 			Reviewerqueue_PO.tab_Review.click();
@@ -53,6 +52,15 @@ public class OMReviewer_queue {
 			Assert.assertEquals("http://omdev.ca-labs.com/app/queue/exception", CurrURL);
 			System.out.println("Current Queue URL " + CurrURL);
 			System.out.println("Queue selected " + QExce);
+		} else if (Queue.equals("QUALITY") && Quapresent == true) {
+
+			Reviewerqueue_PO.tab_Quality.click();
+			String QQua = Reviewerqueue_PO.tab_Quality.getText();
+			Assert.assertEquals(QQua, Queue);
+			String CurrURL = driver.getCurrentUrl();
+			Assert.assertEquals("http://omdev.ca-labs.com/app/queue/qc", CurrURL);
+			System.out.println("Current Queue URL " + CurrURL);
+			System.out.println("Queue selected " + QQua);
 		}
 	}
 
@@ -60,28 +68,23 @@ public class OMReviewer_queue {
 	public void user_selects_Filter_by(String Filter1) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		// throw new PendingException();
-		Filter = Filter1;
+		Reviewerqueue_PO.ddwn_Filter1.click();
 		/*
-		 * WebElement selectElement = Reviewerqueue_PO.ddwn_Filter1; Select
-		 * select = new Select(selectElement); List<WebElement> allOptions =
-		 * select.getOptions(); System.out.println(allOptions);
+		 * WebDriverWait wait = new WebDriverWait(driver, 30); Boolean element =
+		 * wait
+		 * .until(ExpectedConditions.textToBePresentInElement(Reviewerqueue_PO.
+		 * ddwn_Filter1, Filter1)); // elementToBeClickable(By.id("someid")
 		 */
-
-		WebElement mySelectElm = Reviewerqueue_PO.ddwn_Filter1;
-		Select mySelect = new Select((WebElement) mySelectElm);
-		List<WebElement> options = mySelect.getOptions();
-		for (WebElement option : options) {
-			if (option.getText().equalsIgnoreCase(Filter1)) {
-				option.click();
-			}
-		}
+		Filter = Filter1;
+		new Select(Reviewerqueue_PO.ddwn_Filter1).selectByVisibleText(Filter1);
 
 		/*
-		 * boolean Filter_1 =
+		 * boolean Filterpresent =
 		 * Utilities.Utility.elementIsPresent(Reviewerqueue_PO.ddwn_Filter1); if
-		 * (Filter_1==true){ new
-		 * Select(Reviewerqueue_PO.ddwn_Filter1).selectByVisibleText(Filter1); }
-		 * else { System.out.println("No element present");
+		 * (Filterpresent == true && element == true) { new
+		 * Select(Reviewerqueue_PO.ddwn_Filter1)Filter1.selectByVisibleText(
+		 * Filter1); System.out.println("Element " + Filter1 + " present"); }
+		 * else { System.out.println("No " + Filter1 + " present"); }
 		 */
 	}
 
@@ -89,7 +92,22 @@ public class OMReviewer_queue {
 	public void user_selects_the_status(String Filter2) throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		// throw new PendingException();
+		// new
+		// Select(Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText(Filter2);
+		Reviewerqueue_PO.ddwn_Filter2.click();
 		new Select(Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText(Filter2);
+		Thread.sleep(2000);
+		/*
+		 * WebDriverWait wait = new WebDriverWait(driver, 30); Boolean element =
+		 * wait
+		 * .until(ExpectedConditions.textToBePresentInElement(Reviewerqueue_PO.
+		 * ddwn_Filter2, Filter2)); boolean Filterpresent =
+		 * Utilities.Utility.elementIsPresent(Reviewerqueue_PO.ddwn_Filter2); if
+		 * (Filterpresent == true && element == true) { new
+		 * Select(Reviewerqueue_PO.ddwn_Filter2).selectByVisibleText(Filter2);
+		 * System.out.println("Element " + Filter2 + " present"); } else {
+		 * System.out.println("No " + Filter2 + " present"); }
+		 */
 
 	}
 
@@ -98,13 +116,13 @@ public class OMReviewer_queue {
 
 		// Write code here that turns the phrase above into concrete actions
 		// throw new PendingException();
-		int rowcount = driver.findElements(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div"))
-				.size();
+
+		int rowcount = driver.findElements(By.xpath("html/body/div/div/div/main/div/section/div/div/div/div")).size();
 		// Select se = new Select(Reviewerqueue_PO.ddwn_Filter1);
 		// WebElement strCurrentValue = se.getFirstSelectedOption();
 
 		if (rowcount > 0) {
-			System.out.println("Total firms Filtered by " + Filter + " " + Stat + " " + (rowcount - 4));
+			System.out.println("Total firms Filtered by " + Filter + " " + Stat + " " + (rowcount - 5));
 		} else {
 			System.out.println("Not firms Filtered by " + Filter + " " + Stat);
 		}
@@ -116,25 +134,26 @@ public class OMReviewer_queue {
 		int rowcount = driver.findElements(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div"))
 				.size();
 		if (rowcount > 0)
-			for (int x = 5; x < rowcount + 1; x++) {
-				String Compname = driver.findElement(By
-						.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[1]/h3"))
+			for (int x = 6; x < rowcount + 1; x++) {
+				String Compname = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[1]/h3"))
 						.getText();
 				String NumFunds = driver
 						.findElement(By.xpath(
-								"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[2]/div/p"))
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[2]/div/p"))
 						.getText();
 				String FundTyp = driver
 						.findElement(By.xpath(
-								"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[3]/div/p"))
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[3]/div/p"))
 						.getText();
 				String SubmDt = driver
 						.findElement(By.xpath(
-								"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[4]/div/p"))
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[4]/div/p"))
 						.getText();
 				String Status = driver
 						.findElement(By.xpath(
-								"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[2]/p"))
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[2]/p"))
 						.getText();
 				System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
 						+ " Status " + Status);
@@ -165,6 +184,7 @@ public class OMReviewer_queue {
 		} else if (Criteria.equals("Z-A")) {
 			Reviewerqueue_PO.chk_ZA.click();
 		}
+		Thread.sleep(2000);
 	}
 
 	@Then("^Only the firms showed with Sort ([^\"]*)$")
@@ -172,13 +192,12 @@ public class OMReviewer_queue {
 
 		// Write code here that turns the phrase above into concrete actions
 		// throw new PendingException();
-		int rowcount = driver.findElements(By.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div"))
-				.size();
+		int rowcount = driver.findElements(By.xpath("html/body/div/div/div/main/div/section/div/div/div/div")).size();
 		// Select se = new Select(Reviewerqueue_PO.ddwn_Filter1);
 		// WebElement strCurrentValue = se.getFirstSelectedOption();
 
 		if (rowcount > 0) {
-			System.out.println("Total firms Sorted by " + Sorting + " " + SlctCriteria + " " + (rowcount - 4));
+			System.out.println("Total firms Sorted by " + Sorting + " " + SlctCriteria + " " + (rowcount - 5));
 		} else {
 			System.out.println("Not firms Sorted by " + Sorting + " " + SlctCriteria);
 		}
@@ -191,37 +210,48 @@ public class OMReviewer_queue {
 		int rowcount = driver.findElements(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div"))
 				.size();
 		if (rowcount > 0)
-			for (int x = 5; x < rowcount + 1; x++) {
+			for (int x = 6; x < rowcount + 1; x++) {
+				String Compname = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[1]/h3"))
+						.getText();
+				String NumFunds = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[2]/div/p"))
+						.getText();
+				String FundTyp = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[3]/div/p"))
+						.getText();
+				String SubmDt = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[4]/div/p"))
+						.getText();
+				String Status = driver
+						.findElement(By.xpath(
+								"html/body/div/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[2]/p"))
+						.getText();
 				if ((SlctCriteria.equals("Ascending") && SrtOption.equals("Number of Funds"))) {
-					String NumFunds = driver.findElement(By
-							.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[2]/div/p"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + NumFunds);
+
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				} else if ((SlctCriteria.equals("Descending") && SrtOption.equals("Number of Funds"))) {
-					String NumFunds = driver.findElement(By
-							.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[2]/div/p"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + NumFunds);
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				} else if ((SlctCriteria.equals("A-Z") && SrtOption.equals("Firm Name"))) {
-					String Compname = driver.findElement(By.xpath(
-							"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[1]/h3"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + Compname);
+
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				} else if ((SlctCriteria.equals("Z-A") && SrtOption.equals("Firm Name"))) {
-					String Compname = driver.findElement(By.xpath(
-							"html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[1]/div[1]/h3"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + Compname);
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				} else if ((SlctCriteria.equals("Ascending") && SrtOption.equals("Submitted Date"))) {
-					String SubmDt = driver.findElement(By
-							.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[4]/div/p"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + SubmDt);
+
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				} else if ((SlctCriteria.equals("Descending") && SrtOption.equals("Submitted Date"))) {
-					String SubmDt = driver.findElement(By
-							.xpath("html/body/div[1]/div/div/main/div/section/div/div/div/div[" + x + "]/div[4]/div/p"))
-							.getText();
-					System.out.println("Funds sorted by " + SrtOption + " in order " + SlctCriteria + " " + SubmDt);
+					System.out.println("Company " + Compname + " has " + NumFunds + " and " + FundTyp + " and " + SubmDt
+							+ " Status " + Status);
 				}
 			}
 		else {

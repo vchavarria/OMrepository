@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Custom suite]" parallel="tests">
-  <listeners>
-    <listener class-name="com.cucumber.testng.examples.TestNGExecutionListener"/>
-  </listeners>
-  <test name="Cucumber OM Test chrome(failed)" parallel="tests">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
     <classes>
-      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3">
+      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4">
         <methods>
           <include name="afterSuite"/>
           <include name="afterTest"/>
           <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
           <include name="runCukes"/>
-          <include name="beforetest"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3 -->
+      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4 -->
     </classes>
-  </test> <!-- Cucumber OM Test chrome(failed) -->
-</suite> <!-- Failed suite [Custom suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
