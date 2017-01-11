@@ -5,13 +5,22 @@
     <classes>
       <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3">
         <methods>
-          <include name="afterSuite"/>
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="runCukes"/>
         </methods>
       </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3 -->
+      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -19,45 +19,57 @@
 Feature: OM Reviewer queue validation
   This suite is to validate the Reviewer queue screen
 
-  Background: Valid Reviewer Login
-    When User enters a Reviewer valid user name
-    And User enters a Reviewer valid password
-    And User clicks in the Login button
-    And Clicks into the alert page
-    Then user shall be redirected to the OM main page
+  ##Background: Valid Reviewer Login
+    ##When User enters a Reviewer valid user name
+    ##And User enters a Reviewer valid password
+    ##And User clicks in the Login button
+    ##And Clicks into the alert page
+    ##Then user shall be redirected to the OM main page
 
   @regression @positive @reviewerqueue
   Scenario Outline: Validate the Status Filter
     Given User is on the queue <queue>
     When User selects Filter by <Filter>
     And User selects the status <Status>
-    Then Only the firms showed with <Status>
+    Then Only the firms showed with Filter <Status>
     And check the fields displayed within a firm
 
     Examples: 
-      | Filter          | Status             | queue  |
-      | Status          | All                | REVIEW |
-      | Status          | READY TO REVIEW    | REVIEW |
-      | Status          | REVIEW IN PROGRESS | REVIEW |
-      | Type            | All                | REVIEW |
-      | Type            | PE                 | REVIEW |
-      | Last Updated By | All                | REVIEW |
-      | Last Updated By | mlopez             | REVIEW |
-      | Last Updated By | rarodriguez        | REVIEW |
+      | Filter          | Status             | queue     |
+      | Status          | All                | REVIEW    |
+      | Status          | READY TO REVIEW    | REVIEW    |
+      | Status          | REVIEW IN PROGRESS | REVIEW    |
+      | Type            | All                | REVIEW    |
+      | Type            | PE                 | REVIEW    |
+      | Last Updated By | All                | REVIEW    |
+      | Last Updated By | rrodriguez         | REVIEW    |
+      | Status          | All                | EXCEPTION |
+      | Status          | DUPLICATED         | EXCEPTION |
+      | Status          | REJECTED           | EXCEPTION |
+      | Type            | All                | EXCEPTION |
+      | Type            | PE                 | EXCEPTION |
+      | Last Updated By | All                | EXCEPTION |
+      | Last Updated By | rrodriguez         | EXCEPTION |
 
   @regression @positive @reviewerqueue
   Scenario Outline: Validate the Sort Filter
     Given User is on the queue <queue>
     When User selects Sort by <Sorting>
     And User selects the criteria <Criteria>
-    Then Only the firms showed with <Sorting>
+    Then Only the firms showed with Sort <Sorting>
     And check the fields Sorted within a firm
 
     Examples: 
-      | Sorting         | Criteria   | queue  |
-      | Number of Funds | Ascending  | REVIEW |
-      | Number of Funds | Descending | REVIEW |
-      | Firm Name       | A-Z        | REVIEW |
-      | Firm Name       | Z-A        | REVIEW |
-      | Submitted Date  | Ascending  | REVIEW |
-      | Submitted Date  | Descending | REVIEW |
+           | Sorting         | Criteria   | queue     |
+      | Number of Funds | Ascending  | REVIEW    |
+      | Number of Funds | Descending | REVIEW    |
+      | Firm Name       | A-Z        | REVIEW    |
+      | Firm Name       | Z-A        | REVIEW    |
+      | Submitted Date  | Ascending  | REVIEW    |
+      | Submitted Date  | Descending | REVIEW    |
+      | Number of Funds | Ascending  | EXCEPTION |
+      | Number of Funds | Descending | EXCEPTION |
+      | Firm Name       | A-Z        | EXCEPTION |
+      | Firm Name       | Z-A        | EXCEPTION |
+      | Submitted Date  | Ascending  | EXCEPTION |
+      | Submitted Date  | Descending | EXCEPTION |

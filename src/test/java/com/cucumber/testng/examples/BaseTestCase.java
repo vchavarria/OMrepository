@@ -1,11 +1,18 @@
 package com.cucumber.testng.examples;
 
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeClass;
+
+import static org.testng.AssertJUnit.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -13,6 +20,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
@@ -27,14 +35,24 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import com.cucumber.testng.pageobjects.Login_Page_pageobj;
 import com.cucumber.testng.pageobjects.Reviewerqueue_PO;
+
+import Utilities.Utility;
 
 /**
  * Created by amit.rawat on 21/12/15.
  */
 public class BaseTestCase {
-	//static WebDriver driver;
+	/*static WebDriver driver;*/
+	/*public String BaseURL = "http://omdev.ca-labs.com/app/queue/reviewer";*/
+	public static WebDriver driver;
+	/*Reviewerqueue_PO Reviewer_queuePO;
+	Login_Page_pageobj LoginpagePO;*/
 	
 ////	private static final Properties frameworkProperty = PropertyManager
 ////			.loadFrameworkPropertyFile("framework.properties");
@@ -75,30 +93,56 @@ public class BaseTestCase {
 //				.getName());
 //	}
 //
-//	@BeforeTest
-//	@Parameters("executionType")
-//	protected void beforeTest(@Optional("local") String executionType,
-//			ITestContext context) throws Exception {
-//		Browser browser = new Browser(
-//				frameworkProperty.getProperty("browserName"),
-//				frameworkProperty.getProperty("browserVersion"),
-//				Platform.WINDOWS);
-//		DriverFactory factory = new DriverFactory();
-//		IDriver idriver = factory.getDriver(executionType);
-//		WebDriver driver = idriver.getDriver(browser);
-//		context.setAttribute(context.getCurrentXmlTest().getName(), driver);
-//	}
-//
-//	@AfterTest
-//	protected void afterTest(ITestContext context) {
-//		WebDriver webdriver = getWebDriverInstance(context);
+	@BeforeTest
+	/*public void beforetest() {*/
+	
+	/*@Parameters("executionType", "browser")*/
+	/*protected void beforeTest(@Optional("local") String executionTypebrowsername,
+			ITestContext context, String browsername) throws Exception {*/
+		/*Browser browser = new Browser(
+				frameworkProperty.getProperty("browserName"),
+				frameworkProperty.getProperty("browserVersion"),
+				Platform.WINDOWS);
+		DriverFactory factory = new DriverFactory();
+	IDriver idriver = factory.getDriver(executionType);
+		WebDriver driver = idriver.getDriver(browser);
+		context.setAttribute(context.getCurrentXmlTest().getName(), driver);
+	}*/
+			 //System.setProperty("webdriver.chrome.driver", "C://Users/vchavarria/Downloads/Maven-Failsafe-Plugin-Example-master/resources/com/drivers/chromedriver.exe");
+			 //driver = new ChromeDriver();
+			/*if (browsername.equalsIgnoreCase("firefox")){
+				 driver = new FirefoxDriver();
+			 }
+			 else if (browsername.equalsIgnoreCase("chrome")){
+				 System.setProperty("webdriver.chrome.driver", "C://Users/vchavarria/Downloads/Maven-Failsafe-Plugin-Example-master/src/test/resources/com/drivers/chromedriver.exe");		 
+				 driver = new ChromeDriver(); 	
+			 }
+			 else if (browsername.equalsIgnoreCase("ie")){
+					System.setProperty("webdriver.ie.driver", "C://Users/vchavarria/Downloads/Maven-Failsafe-Plugin-Example-master/src/test/resources/com/drivers/IEDriverServer.exe");
+					driver = new InternetExplorerDriver();
+				 }
+			 
+			 //driver = new FirefoxDriver();
+		      	driver.manage().deleteAllCookies();
+		    	driver.manage().window().maximize();
+		    	driver.get(BaseURL);
+		    	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		    	System.out.println(driver.getTitle());
+		    	Reviewer_queuePO = PageFactory.initElements(driver, Reviewerqueue_PO.class);
+		    	LoginpagePO = PageFactory.initElements(driver, Login_Page_pageobj.class);
+	}	  */
+	/*}*/
+	
+	@AfterTest
+	protected void afterTest(ITestContext context) {
+		//WebDriver driver = getWebDriverInstance(context);
 //		log.info(Utilities.getCurrentThreadId() + "Closing the instance:"
 //				+ webdriver.toString());
-//		webdriver.quit();
+		/*driver.quit();*/
 //		context.removeAttribute(context.getCurrentXmlTest().getName());
-//	}
+	}
 //
-//	@AfterMethod
+	@AfterMethod
 //	protected File afterMethod(ITestResult result) throws IOException {
 //		WebDriver webdriver = getWebDriverInstance(result.getTestContext());
 //		if (result.isSuccess()) {
@@ -117,16 +161,21 @@ public class BaseTestCase {
 //				+ screenShotName));
 //		 return screenshot;
 //	
-
-	
-	
-	
-	
 	
 	
     @BeforeSuite
     public void beforeSuite() {
        System.out.println("This is beforeSuite of Base Test Case");
+       
+       /*assertEquals(driver.getTitle(), "Cambridge Associates - Sign In");
+	    Login_Page_pageobj.txtbx_UserName(driver).clear();
+	    Login_Page_pageobj.txtbx_UserName(driver).sendKeys("vchavarria");
+	    Login_Page_pageobj.txtbx_Password(driver).clear();
+		Login_Page_pageobj.txtbx_Password(driver).sendKeys("Daniel2007");
+		Login_Page_pageobj.btn_LogIn(driver).click();
+		Utility.isAlertPresent(driver);
+		Utility.handleAlert(driver);
+		assertEquals(driver.getTitle(), "Operating Metrics");*/
    }
 
     @AfterSuite

@@ -11,10 +11,8 @@ public class Reviewer_Queue_pageobj {
 			element = driver.findElement(By.cssSelector("li.selected"));
 			return element;
 		}
-		
 		public static WebElement ddwn_Filter1(WebDriver driver){
 			element = driver.findElement(By.cssSelector("select.ng-pristine.ng-untouched.ng-valid.ng-not-empty"));
-			//element = driver.findElement(By.xpath("//div[@id='app']/div/div/main/div/section/div/div/div/div[3]/div/div/div/select"));
 			return element;
 		}
 

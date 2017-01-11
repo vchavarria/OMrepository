@@ -4,11 +4,29 @@
     <listeners>
         <listener class-name="com.cucumber.testng.examples.TestNGExecutionListener"></listener>
     </listeners>
-     <test name="Cucumber OM Test" annotations="JDK" preserve-order="true">
+   
+    <!-- <test name="Cucumber OM Test Firefox" annotations="JDK" preserve-order="true">
+     <parameter name="browser" value="chrome"/> 
         <classes>
             <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
             <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
+            <class name="com.cucumber.testng.examples.BaseStepDefs"/>
         </classes>
-        
-    </test>
+     </test> -->
+          <test name="Cucumber OM Test chrome" annotations="JDK" preserve-order="true">
+      <!-- <parameter name="browser" value="firefox"/> -->
+        <classes>
+            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
+           <!--  <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/> -->
+            <class name="com.cucumber.testng.examples.BaseStepDefs"/>
+        </classes>
+      </test>
+         <!-- <test name="Cucumber OM Test IE" annotations="JDK" preserve-order="true">
+      <parameter name="browser" value="IE"/>
+        <classes>
+            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3"/>
+            <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
+            <class name="com.cucumber.testng.examples.BaseStepDefs"/>
+        </classes>
+    </test>  -->
 </suite>
