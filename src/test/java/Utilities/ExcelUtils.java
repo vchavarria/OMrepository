@@ -9,7 +9,7 @@ public class ExcelUtils {
 	}
 
 	public static Double getDoubleCellValue(XSSFWorkbook workbook, int sheetNumber, int rowNumber, int cellNumber) {
-		return Double.valueOf(workbook.getSheetAt(sheetNumber).getRow(rowNumber).getCell(cellNumber).toString());
+		return workbook.getSheetAt(sheetNumber).getRow(rowNumber).getCell(cellNumber).getNumericCellValue();
 	}
 
 	public static Integer getIntegerCellValue(XSSFWorkbook workbook, int sheetNumber, int rowNumber, int cellNumber) {

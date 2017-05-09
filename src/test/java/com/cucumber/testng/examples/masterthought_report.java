@@ -14,7 +14,7 @@ public class masterthought_report {
 	public static void main(String args[]) throws IOException {
 		File reportOutputDirectory = new File("target");
 		List<String> list = new ArrayList<String>();
-		list.add("cucumber3.json");
+		// list.add("cucumber3.json");
 		list.add("cucumber4.json");
 
 		String pluginUrlPath = "";

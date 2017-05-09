@@ -16,8 +16,8 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: OM EBITDA PPM Total Universe report validation
-  This suite is to validate the EBITDA PPM Total Universe Report
+Feature: Report validation
+  This suite is to validate the Reports information showed
 
   Background: Login with a Reviewer valid user
     When User enters a Reviewer valid user name
@@ -26,15 +26,18 @@ Feature: OM EBITDA PPM Total Universe report validation
     And Clicks into the alert page
     Then user shall be redirected to the OM main page
 
-  @regression @positive @EBITDAPPMTU
-  Scenario Outline: Validate the PPM Total Universe report
-    Given User is on the Section <Section>
-    When User selects Type Report <Report Type>
-    And User selects Report <Report>
+  @regression @positive @Reports
+  Scenario Outline: Validate the report
+    Given User selects Report Section <Section>
+    When User is in Report Type <Report Type>
+    And User selects Report to be showed <Report>
     And User clicks on Run button
-    Then <Report> is showed 
+    Then The report displayed is <Report>
     And check the values showed
 
     Examples: 
       | Section         | Report Type | Report         |
       | Defined Reports | EBITDA PPM  | Total Universe |
+      | Defined Reports | EBITDA PPM  | Company Type   |
+      | Defined Reports | EBITDA PPM  | Sector         |
+      | Defined Reports | EBITDA PPM  | ExitAnalisys   |

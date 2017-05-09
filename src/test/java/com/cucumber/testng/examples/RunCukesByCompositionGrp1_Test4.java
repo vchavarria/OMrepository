@@ -13,8 +13,9 @@ import cucumber.api.testng.TestNGCucumberRunner;
  * AbstractTestNGCucumberTests.
  */
 
-@CucumberOptions(features = "src/test/resources/com.cucumber.testng.examples/Reviewer_queue.feature", tags = "@regression,@positive,@reviewerqueue", format = {
-		"pretty", "html:target/site/cucumber-pretty1", "json:target/cucumber4.json" })
+@CucumberOptions(features = { "src/test/resources/com.cucumber.testng.examples/Reviewer_queue.feature",
+		"src/test/resources/com.cucumber.testng.examples/EBITDA_PPM_Tot_Universe.feature" }, tags = "@Reports", format = {
+				"pretty", "html:target/site/cucumber-pretty1", "json:target/cucumber4.json" })
 
 // dryRun: ** **if dryRun option is set to true then cucumber only checks if all
 // the steps have their corresponding step definitions defined or not. The code

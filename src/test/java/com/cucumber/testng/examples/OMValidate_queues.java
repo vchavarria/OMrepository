@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.cucumber.testng.pageobjects.Reviewerqueue_PO;
 
+import Utilities.Utility;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -22,6 +23,7 @@ public class OMValidate_queues {
 
 	public OMValidate_queues() {
 		driver = BaseStepDefs.driver;
+		driver.get(Utilities.Constant.BaseURL + Utilities.Constant.Lnk_RevQueue);
 
 	}
 
@@ -30,9 +32,9 @@ public class OMValidate_queues {
 		// Write code here that turns the phrase above into concrete actions
 		// throw new PendingException();
 		// now perform the action on this element
-		boolean Revpresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Review);
-		boolean Excpresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Exception);
-		boolean Quapresent = Utilities.Utility.elementIsPresent(Reviewerqueue_PO.tab_Quality);
+		boolean Revpresent = Utility.elementIsPresent(Reviewerqueue_PO.tab_Review);
+		boolean Excpresent = Utility.elementIsPresent(Reviewerqueue_PO.tab_Exception);
+		boolean Quapresent = Utility.elementIsPresent(Reviewerqueue_PO.tab_Quality);
 		Thread.sleep(2000);
 		if (Queue.equals("REVIEW") && Revpresent == true) {
 

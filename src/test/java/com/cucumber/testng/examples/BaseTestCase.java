@@ -10,9 +10,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
-/**
- * Created by amit.rawat on 21/12/15.
- */
 public class BaseTestCase {
 	/* static WebDriver driver; */
 	/* public String BaseURL = "http://omdev.ca-labs.com/app/queue/reviewer"; */

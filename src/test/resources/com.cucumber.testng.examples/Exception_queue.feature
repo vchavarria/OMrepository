@@ -43,8 +43,8 @@ Feature: OM Exception queue validation
       ##| Type            | PE                             | EXCEPTION |
       | Type            | RE         | EXCEPTION |
       | Last Updated By | All        | EXCEPTION |
-      ##| Last Updated By | System     | EXCEPTION |
 
+  ##| Last Updated By | System     | EXCEPTION |
   @regression @positive @exceptionqueue
   Scenario Outline: Validate the Sort Filter for PE Funds
     Given User is on the queue <queue>

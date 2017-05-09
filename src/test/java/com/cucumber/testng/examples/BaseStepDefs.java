@@ -2,10 +2,13 @@ package com.cucumber.testng.examples;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.cucumber.testng.pageobjects.DataAnalysis_PO;
 import com.cucumber.testng.pageobjects.Login_Page_PO;
 import com.cucumber.testng.pageobjects.Reviewerqueue_PO;
 
@@ -20,6 +23,7 @@ public class BaseStepDefs {
 	// public String BaseURL = "http://omdev.ca-labs.com/app/queue/reviewer";
 	public static WebDriver driver;
 	Reviewerqueue_PO Reviewer_queuePO;
+	DataAnalysis_PO Data_analysisPO;
 	Login_Page_PO LoginpagePO;
 
 	/* @Parameters("browser") */
@@ -61,6 +65,7 @@ public class BaseStepDefs {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		System.out.println(driver.getTitle());
 		Reviewer_queuePO = PageFactory.initElements(driver, Reviewerqueue_PO.class);
+		Data_analysisPO = PageFactory.initElements(driver, DataAnalysis_PO.class);
 		LoginpagePO = PageFactory.initElements(driver, Login_Page_PO.class);
 		// assertEquals(driver.getTitle(), "Operating Metrics");
 		// Login_Page_pageobj.txtbx_UserName(driver).clear();
@@ -91,13 +96,12 @@ public class BaseStepDefs {
 	@After
 	public void after(Scenario scenario) {
 		System.out.println("This is after Scenario: " + scenario.getName().toString());
-		// if (scenario.isFailed()) {
-		// Take a screenshot...
-		// final byte[] screenshot =
-		// ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-		// scenario.embed(screenshot, "image/png"); // ... and embed it in the
-		// report.
-		// }
+		if (scenario.isFailed()) {
+			// Take a screenshot...
+			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(screenshot, "image/png"); // ... and embed it in the
+														// report.
+		}
 		driver.quit();
 	}
 }

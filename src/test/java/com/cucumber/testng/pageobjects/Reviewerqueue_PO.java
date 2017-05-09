@@ -38,6 +38,9 @@ public class Reviewerqueue_PO {
 	@FindBy(how = How.XPATH, using = "html/body/div/div/div/main/div/section/div/div/div/div[1]/div/ul/li[2]")
 	public static WebElement tab_Quality;
 
+	@FindBy(how = How.XPATH, using = "html/body/div/div/div/main/div/omreport/section/div/div[1]/section/div/div[1]/div/div/ul/li[1]")
+	public static WebElement Tab_DefReports;
+
 	public Reviewerqueue_PO(WebDriver driver) {
 
 		this.driver = driver;
