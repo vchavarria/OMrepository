@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
+    <classes>
+      <class name="com.cucumber.testng.examples.OMLogin"/>
+      <class name="com.cucumber.testng.examples.BaseTestCase"/>
+      <class name="com.cucumber.testng.examples.TestNGExecutionListener"/>
+      <class name="Utilities.Constant"/>
+      <class name="com.cucumber.testng.examples.OMValidate_queues"/>
+      <class name="Utilities.Utility"/>
+      <class name="com.cucumber.testng.pageobjects.DataAnalysis_PO"/>
+      <class name="Utilities.ExcelLoadUtil"/>
+      <class name="com.cucumber.testng.pageobjects.Reviewerqueue_PO"/>
+      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4"/>
+      <class name="Utilities.ExcelUtils"/>
+      <class name="com.cucumber.testng.examples.masterthought_report"/>
+      <class name="com.cucumber.testng.examples.GenerateReport"/>
+      <class name="com.cucumber.testng.pageobjects.Reviewer_Queue_pageobj"/>
+      <class name="com.cucumber.testng.examples.BaseStepDefs"/>
+      <class name="com.cucumber.testng.pageobjects.Login_Page_PO"/>
+      <class name="com.cucumber.testng.examples.OMDataAnalysis"/>
+    </classes>
+  </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
-      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3">
+      <class name="com.cucumber.testng.examples.BaseTestCase">
         <methods>
           <include name="afterSuite"/>
+          <include name="afterTest"/>
           <include name="beforeSuite"/>
-          <include name="beforeMethod"/>
-          <include name="beforeClass"/>
-          <include name="runCukes"/>
         </methods>
-      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test3 -->
+      </class> <!-- com.cucumber.testng.examples.BaseTestCase -->
+      <class name="com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="runCukes"/>
+          <include name="beforeClass"/>
+        </methods>
+      </class> <!-- com.cucumber.testng.examples.RunCukesByCompositionGrp1_Test4 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
